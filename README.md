@@ -1,6 +1,6 @@
 # # Tarefas
 
-Exemplo de Web App para cadastro de Tarefas.
+Web App para cadastro de Tarefas conforme prova aplicada para o processo seletivo.
 
 ### Recursos utilizados:
 
