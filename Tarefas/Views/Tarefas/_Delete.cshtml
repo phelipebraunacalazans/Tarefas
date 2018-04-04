@@ -1,0 +1,53 @@
+@model Tarefas.Application.ViewModels.TarefaViewModel
+
+@{
+    ViewData["Title"] = "Apagar Tarefa";
+}
+
+@*<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span><span class="sr-only">Fechar</span>
+    </button>
+    <h4 class="modal-title">@ViewData["Title"]</h4>
+</div>
+
+<form asp-action="Delete">
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <p> @Html.DisplayNameFor(model => model.Titulo)</p>
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Apagar" class="btn btn-danger" />
+                    <input type="button" class="btn btn-info" value="Fechar" data-dismiss="modal" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>*@
+
+
+<div class="modal fade" id="modalExcluirTarefa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Fechar</span>
+                </button>
+                <h2 class="modal-title">@ViewData["Title"]</h2>
+            </div>
+
+            <form asp-action="Delete">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <h4>Deseja excluir esta Tarefa? </h4>
+                        <p> @Html.DisplayFor(model => model.Titulo)</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Apagar" class="btn btn-danger" />
+                        <input type="button" class="btn btn-info" value="Fechar" data-dismiss="modal" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+@model IEnumerable<Tarefas.Application.ViewModels.TarefaViewModel>
+
+@{
+    ViewData["Title"] = "Minhas Tarefas";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-plus"></span> Nova Tarefa
+    </a>
+</p>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCriacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAlteracao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @{
+                        if (item.Status)
+                        {
+                            <span>Sim</span>
+                        }
+                        else
+                        {
+                            <span>Não</span>
+                        }
+
+                    }   
+                    @*@Html.DisplayFor(modelItem => item.Status)*@
+                </td>
+                <td>
+                    @if (item.DataCriacao == DateTime.MinValue)
+                    {
+                        <p class="text-left">-</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    }
+                </td>
+                <td>
+                    @if (item.DataAlteracao == DateTime.MinValue)
+                    {
+                        <p class="text-left">-</p>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.DataAlteracao)
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                    <button class="btn btn-danger btn-sm excluir-tarefa" id="btnExcluirTarefa" data-id="@item.Id" data-toggle="modal" title="Excluir">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+
+                @*<cs-pager cs-paging-pagesize="@Model.PageSize"
+                    cs-paging-pagenumber="@Model.PageNumber"
+                    cs-paging-totalitems="@Model.TotalItemCount"
+                    cs-pagenumber-param="page"
+                    asp-controller="Tarefas"
+                    asp-action="Index"></cs-pager>*@
+        }
+    </tbody>
+</table>
+
+<div id="modalDelete"></div>
+
+
+@section Scripts{
+
+    <script>
+        $(function () {
+            $(".btn").tooltip();
+        });
+
+        iniciarToastr();
+    </script>
+
+    @{
+        if (TempData["RetornoPost"] != null)
+        {
+            var notificacao = TempData["RetornoPost"].ToString().Split(',');
+
+            <script>
+                toastr["@notificacao[0]"]("@Html.Raw(notificacao[1])");
+            </script>
+        }
+    }
+
+}
