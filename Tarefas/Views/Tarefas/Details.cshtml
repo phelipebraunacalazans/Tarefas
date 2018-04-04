@@ -23,18 +23,24 @@
         <dt>
             @Html.DisplayNameFor(model => model.Status)
         </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prioridade)
+        </dt>
         <dd>
-            @{ 
-                if (Model.Status)
-                {
-                    <span>Sim</span>
-                }
-                else
-                {
-                    <span>Não</span>
-                }
+            @{
+            if (Model.Status)
+            {
+                <span>Sim</span>
+        }
+        else
+        {
+            <span>Não</span>
+    }
 
-            }           
+            }
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Prioridade)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.DataCriacao)

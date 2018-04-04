@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using Tarefas.Domain.Enums;
 
 namespace Tarefas.Application.ViewModels
 {
@@ -14,7 +14,11 @@ namespace Tarefas.Application.ViewModels
         [MaxLength(50, ErrorMessage = "O tamanho máximo do Título é {1}")]
         [Display(Name = "Título")]
         public string Titulo { get; set; }
-                
+
+        [Required(ErrorMessage = "A Prioridade é obrigatório")]
+        [Display(Name = "Prioridade")]
+        public Prioridade Prioridade { get; set; }
+
         [Display(Name = "Concluída?")]
         public bool Status { get;  set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Tarefas.Domain.Enums;
 
 namespace Tarefas.Domain.Entities
 {
@@ -8,6 +9,7 @@ namespace Tarefas.Domain.Entities
         public string Titulo { get; private set; }
         public bool Status { get; private set; }
         public string Descricao { get; private set; }
+        public Prioridade Prioridade { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public DateTime DataAlteracao { get; private set; }
         public DateTime DataExclusao { get; private set; }
