@@ -19,10 +19,4 @@
     <ProjectReference Include="..\Tarefas.Domain\Tarefas.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

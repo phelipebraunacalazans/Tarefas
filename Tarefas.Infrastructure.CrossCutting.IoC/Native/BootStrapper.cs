@@ -22,24 +22,24 @@ namespace Tarefas.Infrastructure.CrossCutting.IoC.Native
             #region Application Services
 
             services.AddSingleton(Mapper.Configuration);
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
-            services.AddScoped<ITarefaAppService, TarefaAppService>();
+            services.AddSingleton<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
+            services.AddSingleton<ITarefaAppService, TarefaAppService>();
 
             #endregion
 
             #region Domain Services
 
-            services.AddScoped<ITarefaService, TarefaService>();
+            services.AddSingleton<ITarefaService, TarefaService>();
 
             #endregion
 
             #region Infra
 
-            services.AddScoped<ITarefaEFRepository, TarefaEFRepository>();
-            services.AddScoped<ITarefaDapperRepository, TarefaDapperRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<TarefasDapperContext>();
-            services.AddScoped<TarefasEFContext>(); 
+            services.AddSingleton<ITarefaEFRepository, TarefaEFRepository>();
+            services.AddSingleton<ITarefaDapperRepository, TarefaDapperRepository>();
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<TarefasDapperContext>();
+            services.AddSingleton<TarefasEFContext>(); 
 
             #endregion
         }

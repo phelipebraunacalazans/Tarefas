@@ -12,9 +12,10 @@ using Tarefas.Infrastructure.Data.Context;
 namespace Tarefas.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(TarefasEFContext))]
-    partial class TarefasEFContextModelSnapshot : ModelSnapshot
+    [Migration("20180404131843_adicionandoPrioridade")]
+    partial class adicionandoPrioridade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
